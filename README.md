@@ -39,9 +39,9 @@ Engineered Features
 
 Data_Change: Day-over-day change in the Data variable
 Rolling Statistics (derived only from Data_Change):
-3-day moving average
-5-day moving average
-3-day rolling standard deviation (volatility)
+- 3-day moving average
+- 5-day moving average
+- 3-day rolling standard deviation (volatility)
 These features capture short-term trends and variability while strictly using only the provided dataset.
 
 Target Variable
