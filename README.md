@@ -50,7 +50,7 @@ Data_Change: Day-over-day change in the Data variable
 
   - 5-day moving average
 
-  - 3-day rolling standard deviation (volatility)
+  - 3-day rolling standard deviation 
 
 These features capture short-term trends and variability while strictly using only the provided dataset.
 
@@ -112,24 +112,22 @@ Lower recall for Down movements reflects the noisy and asymmetric nature of shor
 
 - The model correctly identifies most upward movements.
 - Downward movements are harder to capture, which is expected under constrained feature availability.
+  # Actual vs Predicted Price Direction
 <img width="1323" height="493" alt="Screenshot 2026-01-10 115039" src="https://github.com/user-attachments/assets/57d92037-fb0e-4edb-8db4-89a0a7618712" />
 
-- The predicted direction closely follows periods of upward momentum.
-- Misclassifications highlight the stochastic behavior of daily stock movements.
+This plot compares the actual and predicted next-day stock price direction (Up/Down) over time. The frequent mismatches between the curves reflect the noisy and stochastic nature of short-term stock movements, which explains why overall accuracy remains around 53% despite capturing general upward trends.
+#  Regression-Based Price Reconstruction
 <img width="1327" height="661" alt="Screenshot 2026-01-10 115021" src="https://github.com/user-attachments/assets/b1fd127e-1eff-488a-bd0e-85bf09a7e285" />
 
-Regression-Based Price Reconstruction 
-
-Note:
-This plot is generated using a separate regression model to illustrate next-day price reconstruction from predicted price changes.
-Final model evaluation is performed using classification metrics, not absolute price overlap.
+The regression plot shows an almost complete overlap between actual and predicted next-day prices even though the classification accuracy is approximately 53%. This occurs because the predicted price changes are very small compared to the absolute stock price values. When these small changes (or directional predictions) are added to a large base price, visual differences become negligible, causing the curves to overlap. Therefore, this overlap does not reflect high predictive accuracy; the model’s true performance is appropriately measured using directional classification metrics rather than absolute price plots. 
 
 # Key Insights & Observations
 
-- The absolute stock price prediction performed poorly due to high noise.
-- Reformulating the task as a directional classification problem significantly improved stability and interpretability.
-- Attempts to add additional lag-based features or apply class balancing resulted in degraded performance, indicating limited signal strength.
-- The final model represents a realistic upper bound under the assignment’s strict constraints.
+- Predicting the exact stock price is difficult because daily stock data contains a lot of noise, especially when only limited information is available.
+- Changing the problem to predict the direction of the price (up or down) made the model more stable and easier to understand.
+- Day-to-day changes in the Data variable were able to capture useful signals, particularly for identifying upward price movements.
+- Adding more complex features or balancing the classes did not improve results, showing that the model already uses most of the useful information in the data.
+- Overall, the final model achieves the best realistic performance possible within the rules and limitations of the assignment.
 
 #  Limitations
 
