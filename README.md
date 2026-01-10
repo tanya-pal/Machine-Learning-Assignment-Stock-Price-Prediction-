@@ -41,14 +41,14 @@ Feature engineering is designed to explicitly model day-over-day influence, as r
   - 3-day moving average
   - 5-day moving average
   - 3-day rolling standard deviation (volatility)
-  These features capture short-term trends and variability while strictly using only the provided dataset.
+These features capture short-term trends and variability while strictly using only the provided dataset.
 
 - Target Variable
 
   - NextDayDirection:
   - 1 → Stock price increases the next day
   - 0 → Stock price decreases the next day
-  This binary formulation reduces noise and improves learning stability.
+This binary formulation reduces noise and improves learning stability.
 
 # Model Selection
 
@@ -57,7 +57,7 @@ Feature engineering is designed to explicitly model day-over-day influence, as r
   - It is robust to noisy and limited data
   - It does not rely on strong distributional assumptions
   - It balances model expressiveness and overfitting control
-  Given the constrained feature space, Random Forest provides reliable performance without excessive tuning.
+ Given the constrained feature space, Random Forest provides reliable performance without excessive tuning.
 
 # Training Methodology
 
@@ -69,20 +69,20 @@ Feature engineering is designed to explicitly model day-over-day influence, as r
 
   - Hyperparameters:
 
-   - Number of trees: 300
-   - Maximum depth: 5
-   These values were selected to avoid overfitting while maintaining predictive power.
+    - Number of trees: 300
+    - Maximum depth: 5
+  These values were selected to avoid overfitting while maintaining predictive power.
 
 #  Model Evaluation
 
 Performance Metrics
-- Accuracy: ~53%
-- Baseline Accuracy: 50% (random guessing)
+ - Accuracy: ~53%
+ - Baseline Accuracy: 50% (random guessing)
 The model consistently outperforms the random baseline, demonstrating that the engineered features capture meaningful predictive signal.
 
 # Observed Behavior
-- High recall for upward price movements
-- Lower recall for downward movements
+ - High recall for upward price movements
+ - Lower recall for downward movements
 This asymmetric behavior indicates that the provided Data variable is more informative for predicting upward trends, which is a realistic outcome in constrained financial modeling.
 
 # Key Insights & Observations
