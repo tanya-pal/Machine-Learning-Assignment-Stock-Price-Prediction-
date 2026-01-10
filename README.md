@@ -1,13 +1,12 @@
+# Stock Price Prediction using Machine Learning
 
 
-📈 Stock Price Prediction using Machine Learning
-📌 Overview
+# Overview
 
 This project builds a Python-based machine learning model to forecast next-day stock behavior using two provided datasets:
 
-Data.csv – Independent variable
-
-StockPrice.csv – Dependent variable representing stock prices
+ - Data.csv – Independent variable
+ - StockPrice.csv – Dependent variable representing stock prices
 
 The objective is to model how day-over-day changes in the Data dataset influence next-day stock price movements, strictly within the constraints defined in the assignment.
 
