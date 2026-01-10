@@ -108,22 +108,17 @@ High recall for Up movements indicates that the Data variable carries stronger p
 Lower recall for Down movements reflects the noisy and asymmetric nature of short-term stock movements.
 
 # Confusion Matrix
+<img width="425" height="378" alt="Screenshot 2026-01-10 115050" src="https://github.com/user-attachments/assets/75621f33-ae5c-4770-bbae-54d5178c0e55" />
 
-- Interpretation:
+- The model correctly identifies most upward movements.
+- Downward movements are harder to capture, which is expected under constrained feature availability.
+<img width="1323" height="493" alt="Screenshot 2026-01-10 115039" src="https://github.com/user-attachments/assets/57d92037-fb0e-4edb-8db4-89a0a7618712" />
 
-The model correctly identifies most upward movements.
+- The predicted direction closely follows periods of upward momentum.
+- Misclassifications highlight the stochastic behavior of daily stock movements.
+<img width="1327" height="661" alt="Screenshot 2026-01-10 115021" src="https://github.com/user-attachments/assets/b1fd127e-1eff-488a-bd0e-85bf09a7e285" />
 
-Downward movements are harder to capture, which is expected under constrained feature availability.
-
-Actual vs Predicted Price Direction
-
-Interpretation:
-
-The predicted direction closely follows periods of upward momentum.
-
-Misclassifications highlight the stochastic behavior of daily stock movements.
-
-Regression-Based Price Reconstruction (Illustrative)
+Regression-Based Price Reconstruction 
 
 Note:
 This plot is generated using a separate regression model to illustrate next-day price reconstruction from predicted price changes.
